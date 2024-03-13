@@ -41,6 +41,8 @@ creo un array "todoList" di oggetti "todoItem" con le proprietà "text" & "done"
     - inserisco nel form il "submit" del button;
     - inserisco con un .push il testo nella lista stampata di "todoList"
 
+    !!! HO OPTATO PER UN ALTRA SOLUZIONE !!!
+
 # Bonus
 
     - inserire un keyup.enter al button richiamando il .push del punto 3
