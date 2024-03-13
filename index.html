@@ -7,8 +7,17 @@
     <link rel="stylesheet" href="./assets/css/style.css"> <!-- my css -->
 </head>
 <body>
+<div id="app">
+    <ul>
+        <li v-for="todoItem in todoList">
+            <span v-if="todoItem.done=='true'":class="{completed: todoItem}"> {{todoItem.text}}</span>
+            <span v-else> {{todoItem.text}}</span>
+        </li>
 
-    
+
+    </ul>
+</div>
+
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script> <!-- vuejs -->
     <script src="./assets/js/app.js"></script> <!-- my js -->
 </body>
