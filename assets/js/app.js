@@ -27,6 +27,12 @@ createApp({
         ],
         }
     },
-    methods(){
+    methods:{
+        /* Creo una funzione e gli passo come valore "INDEX" */
+        removeF(index){
+            /* Recupero con il "THIS" l'array "TODOLIST" dall'istanza */
+            /* Rimuovo con ".splice" nella posizione di "INDEX", "1" elemento */
+            this.todoList.splice(index,1)
+        }
     }
 }).mount('#app')

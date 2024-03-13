@@ -9,16 +9,20 @@
 <body>
 <div id="app"> <!-- creo la mia app -->
     <ul><!-- Creo la mia lista NON ORDINATA -->
-        <li v-for="todoItem in todoList"> <!-- Ciclo E Stampo <LI> tanti quanti sono i todoItem presenti in todoList -->
+        <li v-for="(todoItem,index) in todoList"> <!-- Ciclo E Stampo <LI> tanti quanti sono i todoItem presenti in todoList -->
 
             <!-- Inserisco una condizione per cui:
                  SE il valore di "done" di ogni oggetto è "TRUE", aggiungi all'oggetto <li> (todoItem) la classe "completed" e stampa il "TEXT dell'oggetto al suo interno" -->
-                <span v-if="todoItem.done=='true'":class="{completed: todoItem}"> {{todoItem.text}}</span>
+                <span v-if="todoItem.done=='true'":class="{completed: todoItem}"> {{todoItem.text}} 
+                </span>
+                <!-- OPPURE stampa il testo e BASTA -->
+                <span v-else> {{todoItem.text}}</span>
+                <!-- Aggiungo una "x" per rimuovere l'elemento dalla lista INVOCANDO la funzione "removeF" e passandogli come valore "INDEX" che recupero dal v-for sopra -->
+                <span @click="removeF(index)">
+                    &cross;
+                </span>
 
-            <!-- OPPURE -->
-            <span v-else> {{todoItem.text}}</span>
         </li>
-
 
     </ul>
 </div>
