@@ -1,41 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>todo vuejs</title>
-    <link rel="stylesheet" href="./assets/css/style.css"> <!-- my css -->
-</head>
-<body>
-<div id="app"> <!-- creo la mia app -->
-    <h4>{{newTask_text}}</h4>
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <!-- my css -->
+  </head>
+  <body>
+    <div id="app">
+      <!-- creo la mia app -->
+      <h4>{{newTask_text}}</h4>
 
-    <input type="text" placeholder="Inserisci un elemento nella lista" v-model.trim="newTask_text" @keyup.enter="addNewTaskF()">
+      <input
+        type="text"
+        placeholder="Inserisci un elemento nella lista"
+        v-model.trim="newTask_text"
+        @keyup.enter="addNewTaskF()"
+      />
 
-    <button @click="addNewTaskF()"> Add </button>
+      <button @click="addNewTaskF()">Add</button>
 
-    <ul><!-- Creo la mia lista NON ORDINATA -->
-        <li v-for="(todoItem,index) in todoList"> <!-- Ciclo E Stampo <LI> tanti quanti sono i todoItem presenti in todoList -->
+      <ul>
+        <!-- Creo la mia lista NON ORDINATA -->
+        <li v-for="(todoItem,index) in todoList">
+          <!-- Ciclo E Stampo <LI> tanti quanti sono i todoItem presenti in todoList -->
 
-            <!-- Inserisco una condizione per cui:
+          <!-- Inserisco una condizione per cui:
                  SE il valore di "done" di ogni oggetto è "TRUE", aggiungi all'oggetto <li> (todoItem) la classe "completed" e stampa il "TEXT dell'oggetto al suo interno" -->
-                <span v-if="todoItem.done=='true'":class="{completed: todoItem}"> {{todoItem.text}} 
-                </span>
-
-                <!-- OPPURE stampa il testo e BASTA -->
-                <span v-else> {{todoItem.text}}</span>
-
-                <!-- Aggiungo una "x" per rimuovere l'elemento dalla lista INVOCANDO la funzione "removeF" e passandogli come valore "INDEX" che recupero dal v-for sopra -->
-                <span @click="removeF(index)">
-                    &cross;
-                </span>
-
+          <span
+            @click="getStatusDone(index)"
+            :class="{ 'completed': todoItem.done=='true', '': !todoItem.done=='false' }"
+          >
+            {{todoItem.text}} >
+          </span>
+          <!-- Aggiungo una "x" per rimuovere l'elemento dalla lista INVOCANDO la funzione "removeF" e passandogli come valore "INDEX" che recupero dal v-for sopra -->
+          <span @click="removeF(index)"> &cross; </span>
         </li>
+      </ul>
+    </div>
 
-    </ul>
-</div>
-
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script> <!-- vuejs -->
-    <script src="./assets/js/app.js"></script> <!-- my js -->
-</body>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <!-- vuejs -->
+    <script src="./assets/js/app.js"></script>
+    <!-- my js -->
+  </body>
 </html>

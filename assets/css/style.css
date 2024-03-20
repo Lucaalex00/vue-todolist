@@ -2,3 +2,7 @@
     text-decoration: line-through;
     color: rgba(122, 2, 2, 0.833);
 }
+
+.notcompleted{
+    color: green;
+}
