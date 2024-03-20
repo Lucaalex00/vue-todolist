@@ -32,7 +32,7 @@
             @click="getStatusDone(index)"
             :class="{ 'completed': todoItem.done=='true', '': !todoItem.done=='false' }"
           >
-            {{todoItem.text}} >
+            {{todoItem.text}}
           </span>
           <!-- Aggiungo una "x" per rimuovere l'elemento dalla lista INVOCANDO la funzione "removeF" e passandogli come valore "INDEX" che recupero dal v-for sopra -->
           <span @click="removeF(index)"> &cross; </span>
